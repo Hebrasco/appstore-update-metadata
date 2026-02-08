@@ -32,7 +32,7 @@ Place them in one folder and provide the folder path to the script.
 Then use it like this:
 
 ```
-USAGE: update-meta-data <localizations-path> --bundle-id <bundle-id>
+USAGE: appstore-update-metadata <localizations-path> --bundle-id <bundle-id>
 
 ARGUMENTS:
   <localizations-path>    The path to the folder where the '.json' files are.

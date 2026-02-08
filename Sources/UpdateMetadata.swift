@@ -1,13 +1,13 @@
 //
 //  main.swift
-//  appstore-metadata-updater
+//  appstore-update-metadata
 //
 //  Created by Daniel Bedrich on 08.02.26.
 //
 
 import Foundation
 import ArgumentParser
-@preconcurrency  import AppStoreConnect_Swift_SDK
+@preconcurrency import AppStoreConnect_Swift_SDK
 
 let provider = APIProvider(configuration: APPSTORE_CONFIGURATION)
 
@@ -31,11 +31,11 @@ struct UpdateMetadata: AsyncParsableCommand {
         for localizationId in localizations.map({ $0.id }) {
             let localization = await requestLocalization(localizationId)
             let appStoreLocale = localization.attributes!.locale!
-            let fileManage = FileManager.default
-            let doesAppStoreLocaleFileExist = fileManage.fileExists(atPath: "\(localizationsPath)/\(appStoreLocale).json")
+            let fileManager = FileManager.default
+            let doesAppStoreLocaleFileExist = fileManager.fileExists(atPath: "\(localizationsPath)/\(appStoreLocale).json")
             
             let backupLocale = getBackupLocale(appStoreLocale)
-            let doesBackupLocaleFileExist = fileManage.fileExists(atPath: "\(localizationsPath)/\(backupLocale).json")
+            let doesBackupLocaleFileExist = fileManager.fileExists(atPath: "\(localizationsPath)/\(backupLocale).json")
 
             var locale: String? {
                 if doesAppStoreLocaleFileExist { return appStoreLocale }
