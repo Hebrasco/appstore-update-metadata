@@ -8,3 +8,4 @@ DerivedData/
 .netrc
 *.xcuserstate
 *.pbxuser
+/Sources/AppStoreConfiguration.swift
